@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ✅ SEO Essentials -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 5 Nearby Places | Interactive Google Map Search</title>
+    <meta name="description" content="Discover the top 5 nearby restaurants, cafes, and attractions using our interactive Google Map search. Accessible and SEO-optimized tool built with Tailwind CSS.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ✅ SEO: Canonical & Favicons (optional good practice) -->
+    <link rel="canonical" href="https://yourdomain.com/index.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body class="p-4 sm:p-8 bg-gray-50 text-gray-900">
+    <header class="max-w-7xl mx-auto w-full mb-6">
+        <!-- ✅ Semantic header and accessible nav -->
+        <nav class="flex justify-between items-center mb-4" role="navigation" aria-label="Main Navigation">
+            <a href="index.html" class="text-xl font-bold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                Map Search
+            </a>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Home</a></li>
+                <li><a href="#results-container" class="text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Results</a></li>
+                <li><a href="#map" class="text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Map</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto w-full space-y-6">
+        <!-- ✅ H1 for primary topic -->
+        <h1 class="text-3xl font-extrabold text-gray-900">Top 5 Nearby Places Map Search</h1>
+        <p class="text-sm text-gray-600">
+            Type a place, restaurant, or business name and click Search. Results are biased towards your current map view.
+        </p>
+
+        <!-- Search Form (Accessible) -->
+        <form class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full" role="search" aria-label="Place search form" onsubmit="event.preventDefault(); document.getElementById('search-button').click();">
+            <label for="search-input" class="sr-only">Search for places</label>
+            <input 
+                type="text" 
+                id="search-input" 
+                name="search"
+                placeholder="e.g., top restaurants near me"
+                class="flex-grow p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150"
+                aria-required="true"
+                aria-label="Search for places">
+            
+            <button 
+                id="search-button"
+                type="button"
+                class="bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-800 transition duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                aria-label="Search places">
+                Search
+            </button>
+        </form>
+
+        <!-- Map Section -->
+        <section class="relative" aria-label="Interactive map section">
+            <div id="map" role="region" aria-label="Google Map displaying nearby places"></div>
+
+            <!-- Accessible loading overlay -->
+            <div id="loading-overlay" class="loading-overlay" role="status" aria-live="polite">
+                <div class="spinner" role="img" aria-label="Loading map results"></div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4" aria-live="polite" aria-label="Search results">
+            <!-- Dynamic results inserted here -->
+        </section>
+    </main>
+
+    <footer class="max-w-7xl mx-auto mt-10 text-center text-sm text-gray-500 border-t border-gray-200 pt-4">
+        <p>&copy; 2025 Map Search Tool. All rights reserved.</p>
+        <a href="#top" class="text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Back to top</a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF0avc-YS9d9KIcEDkNcollHRi44T9GxU&libraries=places&callback=initMap"></script>
+</body>
+</html>
